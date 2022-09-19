@@ -1,0 +1,16 @@
+tests/test_homepage.py::HomePage::test_client_login
+--------------------------------------------------------------------
+Last Page: https://stage.psyedge.ru/
+  Browser: firefox (104.0.2)
+   Driver: geckodriver (0.31.0)
+Timestamp: 1663601442  (Unix Timestamp)
+     Date: Monday, 19 September 2022
+     Time: 6:30:42 PM  (RTZ 2 (зима), UTC+03:00)
+--------------------------------------------------------------------
+Traceback: File "C:\Users\urikb\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\urikb\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\urikb\Desktop\qa_projects\cenpp_project\tests\test_homepage.py", line 26, in test_client_login
+    LandingPage().accept_cookie_policy()
+Exception: LandingPage.accept_cookie_policy() missing 1 required positional argument: 'sb'
