@@ -1,36 +1,32 @@
 from seleniumbase import BaseCase
+from pages.landing_page import LandingPage
+
 
 class HomePage(BaseCase):
 
+    def test_client_login(self):
 
-    def test_client_registration(self):
+        # Given user opens the landing page
+        self.goto("https://stage.psyedge.ru/")
 
-        self.open("https://stage.psyedge.ru/")
+        # Then reads and accepts the site's cookie policy
+        LandingPage().accept_cookie_policy(self)
 
-        self.click("button.primary.size-55")
-        
-        self.click("button[data-v-11dd0570]")
+        # Then clicks away from the welcoming section using arrow button
+        LandingPage().click_away_from_welcome_page(self)
 
-        self.scroll_to_bottom()
+        # Then clicks at client login form link in header
+        LandingPage().click_the_header_client_login_link(self)
 
-        self.assert_element_present("div.wrapper-menu")
+        # Then types phone number into the input field
+        LandingPage().type_client_login_credentials(self)
 
-        self.click("div.menu-login-link>a[href='/Client/RegistrationLoginPage']")
-    
-        self.assert_text("Вход в систему", "h1")
+        # Then user accepts site's privacy policy and presses login button
+        LandingPage().accept_privacy_policy_and_submit(self)
 
-        self.focus("input[type='phone']")
-        
-        self.type("input[type='phone']", "9999999999")
-
-        self.select_if_unselected("input[type='checkbox']")
-
-        self.click('button.btn-enter')
-
-        self.focus("input.input[required]")
-
-        self.type('input[required]', '0000')
-
-        self.click('button.size-55')
+        # Then user enters received by sms one time password and proceeds to login by clicking submit button
+        LandingPage().type_otp_code_and_proceed_further(self)
 
         self.assert_text('Личный кабинет', 'h1')
+
+
