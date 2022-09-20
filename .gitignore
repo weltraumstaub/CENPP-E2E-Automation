@@ -1,0 +1,6 @@
+__pychache__
+/latest_logs
+.idea
+.env
+pytestdebug.log
+/archived_logs
