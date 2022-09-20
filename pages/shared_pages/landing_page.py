@@ -6,6 +6,7 @@ class LandingPage:
     # Import environment variables
     load_dotenv()
 
+    # User opens the URL and lands on the welcoming screen of the landing page
     @staticmethod
     def open_landing_page(sb):
         landing_url = os.getenv("STAGING_URL")
@@ -36,31 +37,15 @@ class LandingPage:
         sb.assert_element(header_menu)
         sb.is_attribute_present(header_menu, "[class='is-visible']")
 
-    # User chooses link for client login in the header menu and proceeds to login form
+    # User chooses link for client login in the header menu and proceeds to client login form
     @staticmethod
     def click_the_header_client_login_link(sb):
         client_login_button = "//span[text()='Вход клиентам']"
         sb.click(client_login_button)
 
-    # User types his phone number to the phone input field
+    # User chooses link for psychologist login in the header menu and proceeds to psychologist login form
     @staticmethod
-    def type_client_login_credentials(sb):
-        test_phone_number = os.getenv("CLIENT_FAKE_PHONE_NUMBER")
-        sb.focus("input[type='phone']")
-        sb.type("input[type='phone']", test_phone_number)
-
-    # User check the site's privacy policy checkbox and clicks the login submission button
-    @staticmethod
-    def accept_privacy_policy_and_submit(sb):
-        sb.select_if_unselected("input[type='checkbox']")
-        sb.click('button.btn-enter')
-
-    # User enters one time password received by sms and proceeds further to office page
-    @staticmethod
-    def type_otp_code_and_proceed_further(sb):
-        test_otp_code = os.getenv("CLIENT_FAKE_PHONE_OTP_CODE")
-        sb.focus("input.input[required]")
-        sb.type('input[required]', test_otp_code)
-        sb.click('button.size-55')
-
+    def click_the_header_psychologist_login_link(sb):
+        client_login_button = "//span[text()='Вход специалистам']"
+        sb.click(client_login_button)
 
