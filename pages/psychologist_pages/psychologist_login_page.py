@@ -18,7 +18,9 @@ class PsychologistLoginPage:
         test_psychologist_password = os.getenv("PSYCHOLOGIST_TEST_PASSWORD")
         password_input_field = "input[type='password']"
         sb.focus(password_input_field)
-        sb.type(password_input_field, password_input_field)
+        sb.type(password_input_field, test_psychologist_password)
+
+
 
 
 

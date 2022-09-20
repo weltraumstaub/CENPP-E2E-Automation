@@ -1,4 +1,6 @@
 from seleniumbase import BaseCase
+
+from pages.psychologist_pages.profile_page import ProfilePage
 from pages.shared_pages.landing_page import LandingPage
 from pages.client_pages.client_login_page import ClientLoginPage
 from pages.psychologist_pages.psychologist_login_page import PsychologistLoginPage
@@ -48,6 +50,7 @@ class HomePage(BaseCase):
         landing_page = LandingPage()
         login_page = PsychologistLoginPage()
         common_actions = CommonActions()
+        profile_page = ProfilePage()
 
         # Given psychologist opens the landing page
         landing_page.open_landing_page(self)
@@ -75,6 +78,13 @@ class HomePage(BaseCase):
 
         # Then psychologist marks site's policy checkbox and submits login form
         common_actions.accept_privacy_policy_and_submit_login_form(self)
+
+        # Then assert side menu to appear after logging in
+        common_actions.assert_side_menu_to_be_interaction_ready(self)
+
+        # Finally assert to be on the personal profile page
+        profile_page.assert_to_be_on_the_profile_page(self)
+
 
 
 
