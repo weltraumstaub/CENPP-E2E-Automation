@@ -83,7 +83,7 @@ class HomePage(BaseCase):
         common_actions.assert_side_menu_to_be_interaction_ready(self)
 
         # Finally assert to be on the personal profile page
-        profile_page.assert_to_be_on_the_profile_page(self)
+        profile_page.assert_being_on_the_profile_page(self)
 
 
 
