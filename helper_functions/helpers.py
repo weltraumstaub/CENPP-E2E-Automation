@@ -13,7 +13,7 @@ class HelperFunctions:
     def perform_client_login(sb):
         login_page = ClientLoginPage()
         common_actions = CommonActions()
-        sb.get(os.getenv("CLIENT_LOGIN_URL"))
+        sb.get(f"{os.getenv('STAGING_URL')}/Client/RegistrationLoginPage")
         login_page.type_client_login_credentials(sb)
         common_actions.accept_privacy_policy_and_submit_login_form(sb)
         login_page.type_otp_code_and_proceed_further(sb)
@@ -22,7 +22,7 @@ class HelperFunctions:
     def perform_psychologist_login(sb):
         login_page = PsychologistLoginPage()
         common_actions = CommonActions()
-        sb.get(os.getenv("PSYCHOLOGIST_LOGIN_URL"))
+        sb.get(f"{os.getenv('STAGING_URL')}/Client/LoginPage")
         login_page.type_email_in_the_login_field(sb)
         login_page.type_password_in_the_input_field(sb)
         common_actions.accept_privacy_policy_and_submit_login_form(sb)

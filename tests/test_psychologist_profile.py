@@ -32,5 +32,19 @@ class PsychologistProfilePage(BaseCase):
         # Finally psychologist makes sure all of his articles and article images are visible
         profile_page.assert_article_section_to_render(self)
 
-    def test_basic_profile_edit(self):
-        pass
+    def test_basic_profile_info_editing(self):
+        helper_functions = HelperFunctions()
+        profile_page = ProfilePage()
+        common_actions = CommonActions()
+
+        # Given psychologist authorized in system
+        helper_functions.perform_psychologist_login(self)
+
+        # Then psychologists checks side menu elements to make sure page is fully loaded
+        common_actions.assert_side_menu_to_be_interaction_ready(self)
+
+        # Then psychologist navigates to the profile edit page
+        profile_page.navigate_to_profile_edit_page(self)
+
+
+

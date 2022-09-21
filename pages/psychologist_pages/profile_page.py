@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import random
 
 
 class ProfilePage:
@@ -61,6 +62,33 @@ class ProfilePage:
         sb.assert_equal(f"{os.getenv('STAGING_URL')}/Client/Profile/edit", sb.get_current_url())
         sb.assert_text("Редактирование страницы", "h1.title")
 
+    @staticmethod
+    def change_personal_info(sb):
+        first_name = "//div//input[@placeholder='Введите имя']"
+        last_name = "//div//input[@placeholder='Введите фамилию']"
+        date_of_birth = "//div//input[@placeholder='Введите дату рождения']"
+        city_of_residence = "//div//input[@placeholder='Введите город']"
+        gender = ""
+        profile_photo = ""
+        sb.clear("")
+        sb.send_keys("")
 
+    @staticmethod
+    def change_work_experience_info(sb):
+        pass
 
+    @staticmethod
+    def change_psychotherapy_format_info(sb):
+        pass
 
+    @staticmethod
+    def change_primary_education_info(sb):
+        pass
+
+    @staticmethod
+    def change_secondary_education_info(sb):
+        pass
+
+    @staticmethod
+    def change_articles_info(sb):
+        pass
