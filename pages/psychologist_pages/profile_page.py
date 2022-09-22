@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import random
+from helper_functions.helpers import HelperFunctions
 
 
 class ProfilePage:
@@ -64,18 +65,35 @@ class ProfilePage:
 
     @staticmethod
     def change_personal_info(sb):
+        helper_functions = HelperFunctions()
         first_name = "//div//input[@placeholder='Введите имя']"
         last_name = "//div//input[@placeholder='Введите фамилию']"
         date_of_birth = "//div//input[@placeholder='Введите дату рождения']"
         city_of_residence = "//div//input[@placeholder='Введите город']"
-        gender = ""
-        profile_photo = ""
-        sb.clear("")
-        sb.send_keys("")
+        personal_gender = "div.select--half>div.wrap>button"
+        profile_photo_deletion = "div.main[required]>div>div.file-info>button"
+        profile_photo_input = "div[required] input[accept='.jpg,.jpeg,.png']"
+        personal_info_items_list = [first_name, last_name, city_of_residence]
+
+        # Clear up personal profile fields
+        for item in personal_info_items_list:
+            sb.clear(item)
+
+        sb.click(profile_photo_deletion)
+        helper_functions.upload_test_file_to_input(sb, profile_photo_input)
+
+        first_name_options = ["Эдриан-Анатолий", "Ян"]
+        last_name_options = ["Залесский-Лесков", "Кю"]
+        city_name_options = ["Петропавлоск-Камчатский", "Новгород Ладонежский"]
+
+        sb.send_keys(first_name, random.choice(first_name_options))
+        sb.send_keys(last_name, random.choice(last_name_options))
+        sb.send_keys(city_of_residence, random.choice(city_name_options))
 
     @staticmethod
     def change_work_experience_info(sb):
-        pass
+        work_experience_value = ""
+        work_experience_description = ""
 
     @staticmethod
     def change_psychotherapy_format_info(sb):
@@ -92,3 +110,4 @@ class ProfilePage:
     @staticmethod
     def change_articles_info(sb):
         pass
+

@@ -46,5 +46,10 @@ class PsychologistProfilePage(BaseCase):
         # Then psychologist navigates to the profile edit page
         profile_page.navigate_to_profile_edit_page(self)
 
+        # Then psychologist clears personal info and proceeds to update info in each field
+        profile_page.change_personal_info(self)
+
+
+
 
 

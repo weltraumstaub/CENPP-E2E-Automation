@@ -1,4 +1,5 @@
 
+
 class CommonActions:
 
     # User check the site's privacy policy checkbox and clicks the login submission button
