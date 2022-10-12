@@ -1,5 +1,5 @@
 ###############################################################################
 
-Basic E2E Automation Framework using Seleniumbase & Classic Page Object Pattern 
+End-To-End Automation Framework using Seleniumbase & Classic Page Object Pattern 
 
 ###############################################################################
